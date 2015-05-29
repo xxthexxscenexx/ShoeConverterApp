@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var mensShoeSizeTextField: UITextField!
     @IBOutlet weak var mensConvertedShoeSizeLabel: UILabel!
     
+    @IBOutlet weak var WomensShoeSizeTextField: UITextField!
+    @IBOutlet weak var womensShoeSizeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,9 +34,17 @@ class ViewController: UIViewController {
         let conversionConstant = 30
         mensConvertedShoeSizeLabel.hidden = false                   // make unhidden label
         mensConvertedShoeSizeLabel.text = "\(sizeFromTextField + conversionConstant)" + " in European Shoe Size"
-        mensShoeSizeTextField.text = "" // clears text field to placeholder text 
+        mensShoeSizeTextField.text = "" // clears text field to placeholder text
         
     }
 
+    @IBAction func convertButtonPressedWomens(sender: UIButton) {
+        
+        let sizeFromTextField = Double((WomensShoeSizeTextField.text as NSString).doubleValue) // converts string to a double
+        let conversionConstant = 30.5
+        womensShoeSizeLabel.hidden = false
+        womensShoeSizeLabel.text = "\(sizeFromTextField + conversionConstant)" + " In European Shoe Size"
+        WomensShoeSizeTextField.text = ""
+        
+    }
 }
-
